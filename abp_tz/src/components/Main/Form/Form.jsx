@@ -1,7 +1,17 @@
+import { useDispatch } from "react-redux";
+
+import { getVinFetch } from "../../Store/Reducer/vinSlice";
+
+
+
+
 function Form() {
+  const dispatch = useDispatch();
 
   function handleSumbit(event) {
     event.preventDefault();
+    const vinValue = event.target.form[0].value;
+    dispatch(getVinFetch(vinValue));
   }
 
   return (

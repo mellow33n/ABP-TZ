@@ -1,23 +1,34 @@
 import { createSlice } from "@reduxjs/toolkit"
 import { createAsyncThunk } from "@reduxjs/toolkit/";
 
+import { getVIN, getVinList } from "../../../api/vinAPI";
 
 
-/* export const getMoviesBySearchFetch = createAsyncThunk('movies/getMoviesBySearchFetch', async ({ defaultPage = 1, genres = false, lang = false }) => {
-    const data = await getMoviesBySearh(defaultPage, genres, lang);
 
-    return data;
-}); */
+export const getVinFetch = createAsyncThunk('getVinByUser', async (vin) => {
+    const data = await getVIN(vin);
+
+    return data
+});
+
+export const getVinListFetch = createAsyncThunk('getVinListbyUser', async() => {
+    const data = await getVinList();
+
+    return data
+})
 
 
 export const vinSlice = createSlice({
     name: 'VIN',
     initialState: {
-        vinState: {
-            loaded: false,
-            loading: false,
-            error: null,
-        },
+        loaded: false,
+        loading: false,
+        error: null,
+        searchResults: [],
+        searchCriteria: '',
+        lastFiveSearch: [],
+        vinList: [],
+
     },
     reducers: {
 
@@ -27,34 +38,55 @@ export const vinSlice = createSlice({
                 .filter((value) => value)
                 .join()
         }, */
-        
+
     },
     extraReducers: (builder) => {
-        // movies
-        /* builder.addCase(getMoviesFetch.pending, (state, action) => {
-            state.movies_sect.loading = true;
-            state.movies_sect.loaded = false;
-            state.movies_sect.error = false;
-            state.movies_sect.movies = [];
-        }).addCase(getMoviesFetch.fulfilled, (state, action) => {
-            state.movies_sect.loading = false;
-            state.movies_sect.loaded = true;
-            state.movies_sect.error = null;
-            state.movies_sect.movies = action.payload.data.results.map((value) => Object.assign({}, value, { isFavorites: false }));
-            for (let card of state.movies_sect.movies) {
-                for (let favCard of state.movies_sect.favoritesMovies) {
-                    if (card.id === favCard.id) {
-                        card.isFavorites = true;
-                    }
+        builder.addCase(getVinFetch.pending, (state, action) => {
+            state.loading = true;
+            state.loaded = false;
+            state.error = false;
+        }).addCase(getVinFetch.fulfilled, (state, action) => {
+            state.loading = false;
+            state.loaded = true;
+            state.error = null;
+            state.searchResults = action.payload.data.Results.filter((value) => value.Value ? value : null);
+            state.searchCriteria = action.payload.data.SearchCriteria;
+            // lastFiveSearch
+            // добавляю первый запрос
+            if (!state.lastFiveSearch.length) {
+                state.lastFiveSearch.push(state.searchCriteria);
+            } else {
+                // если запросы были, проверяю новый на наличие копии в массиве
+                const isIncludes = state.lastFiveSearch.includes(state.searchCriteria);
+
+                // если новый запрос уникальный - добавляю его в начало массива
+                if (!isIncludes) {
+                    state.lastFiveSearch.unshift(state.searchCriteria);
                 }
-            };
-            state.movies_sect.total_pages = action.payload.data.total_pages;
-            state.movies_sect.page_num = action.payload.data.page;
-        }).addCase(getMoviesFetch.rejected, (state, action) => {
-            state.movies_sect.loading = false;
-            state.movies_sect.loaded = true;
-            state.movies_sect.error = action.error;
-        }) */
+
+                // если длина массива больше 5 - обрезаю его
+                if (state.lastFiveSearch.length > 5) {
+                    state.lastFiveSearch = state.lastFiveSearch.slice(0, 5);
+                }
+            }
+        }).addCase(getVinFetch.rejected, (state, action) => {
+            state.loading = false;
+            state.loaded = true;
+            state.error = action.error;
+        }).addCase(getVinListFetch.pending, (state, action) => {
+            state.loading = true;
+            state.loaded = false;
+            state.error = false;
+        }).addCase(getVinListFetch.fulfilled, (state, action) => {
+            state.loading = false;
+            state.loaded = true;
+            state.error = null;
+            state.vinList = action.payload.data.Results;
+        }).addCase(getVinListFetch.rejected, (state, action) => {
+            state.loading = false;
+            state.loaded = true;
+            state.error = action.error;
+        })
     }
 });
 export const { a } = vinSlice.actions;

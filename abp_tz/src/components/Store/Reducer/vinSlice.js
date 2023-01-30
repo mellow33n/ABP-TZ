@@ -11,7 +11,7 @@ export const getVinFetch = createAsyncThunk('getVinByUser', async (vin) => {
     return data
 });
 
-export const getVinListFetch = createAsyncThunk('getVinListbyUser', async() => {
+export const getVinListFetch = createAsyncThunk('getVinListbyUser', async () => {
     const data = await getVinList();
 
     return data
@@ -81,7 +81,15 @@ export const vinSlice = createSlice({
             state.loading = false;
             state.loaded = true;
             state.error = null;
-            state.vinList = action.payload.data.Results;
+            state.vinList = action.payload.data.Results.sort((a, b) => {
+                if (a.Name > b.Name) {
+                    return 1
+                }
+                if (a.Name < b.Name) {
+                    return -1
+                }
+                return 0
+            })
         }).addCase(getVinListFetch.rejected, (state, action) => {
             state.loading = false;
             state.loaded = true;

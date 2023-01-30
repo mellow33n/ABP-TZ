@@ -1,4 +1,6 @@
 import Form from "./Form/Form";
+import LastFive from "./LastFive/LastFive";
+import Result from "./Result/Result";
 
 
 
@@ -12,12 +14,11 @@ function Main() {
 
   return (
     <main className="main">
-      <div className="main-left">
+      <section className="main-left">
         <Form/>
-      </div>
-      <div className="main-right">
-
-      </div>
+        <LastFive/>
+      </section>
+      <Result/>
     </main>
   );
 }

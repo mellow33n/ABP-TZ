@@ -12,6 +12,7 @@ function Form() {
     event.preventDefault();
     const vinValue = event.target.form[0].value;
     dispatch(getVinFetch(vinValue));
+    event.target.form[0].value = '';
   }
 
   return (

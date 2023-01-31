@@ -13,13 +13,13 @@ function Main() {
 
 
   return (
-    <main className="main">
+    <>
       <section className="main-left">
         <Form/>
         <LastFive/>
       </section>
       <Result/>
-    </main>
+    </>
   );
 }
 

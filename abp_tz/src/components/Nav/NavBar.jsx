@@ -1,8 +1,9 @@
 
-import { NavLink } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 
 function NavBar() {
   return (
+    <>
     <nav className="nav">
       <div className="nav-item">
         <NavLink to="/">
@@ -15,6 +16,10 @@ function NavBar() {
         </NavLink>
       </div>
     </nav>
+    <main className="main">
+      <Outlet/>
+    </main>
+    </>
   );
 }
 

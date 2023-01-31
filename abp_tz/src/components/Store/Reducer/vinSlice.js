@@ -24,20 +24,16 @@ export const vinSlice = createSlice({
         loaded: false,
         loading: false,
         error: null,
-        searchResults: [],
+        searchResults: {
+            results: [],
+            errors: [],
+        },
         searchCriteria: '',
         lastFiveSearch: [],
         vinList: [],
 
     },
     reducers: {
-
-        /* getFetchStringID: (state, action) => {
-            state.movies_sect.fetchStrID = state.movies_sect.genres
-                .map((value) => value.selected ? (value.id + '') : false)
-                .filter((value) => value)
-                .join()
-        }, */
 
     },
     extraReducers: (builder) => {
@@ -49,7 +45,9 @@ export const vinSlice = createSlice({
             state.loading = false;
             state.loaded = true;
             state.error = null;
-            state.searchResults = action.payload.data.Results.filter((value) => value.Value ? value : null);
+            const errorsID = [143, 156, 191];
+            state.searchResults.results = action.payload.data.Results.filter((value) => value.Value && !errorsID.includes(value.VariableId) ? value : null)
+            state.searchResults.errors = action.payload.data.Results.filter((value) => value.Value && errorsID.includes(value.VariableId)? value : null);
             state.searchCriteria = action.payload.data.SearchCriteria;
             // lastFiveSearch
             // добавляю первый запрос

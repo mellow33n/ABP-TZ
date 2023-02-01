@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
 
-import { getVinListFetch } from "../Store/Reducer/vinSlice";
+import { getVinListFetch } from "../../components/Store/Reducer/vinSlice";
 
 import VinIdCard from "./VinIdCard";
 

@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 
 
-import { getVinFetch } from "../../Store/Reducer/vinSlice";
+import { getVinFetch } from "../../../components/Store/Reducer/vinSlice";  
 
 function LastFive() {
   const state = useSelector((data) => data);

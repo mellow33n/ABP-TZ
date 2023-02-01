@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 
-import { getVinFetch } from "../../Store/Reducer/vinSlice";
+import { getVinFetch } from "../../../components/Store/Reducer/vinSlice";
 
 function Form() {
   const dispatch = useDispatch();

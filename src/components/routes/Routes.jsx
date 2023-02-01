@@ -1,11 +1,14 @@
 import { lazy, Suspense } from "react";
 import { getVinListFetch } from "../Store/Reducer/vinSlice";
 
-const NotFound = lazy(() => import("../NotFound/NotFound"));
-const Main = lazy(() => import("../Main/Main"));
-const VinList = lazy(() => import("../VinList/VinList"));
-const VinIdInfo = lazy(() => import("../VinIdInfo/VinIdInfo"));
+const NotFound = lazy(() => import("../../pages/NotFound/NotFound"));
+const Main = lazy(() => import("../../pages/Main/Main"));
+const VinList = lazy(() => import("../../pages/VinList/VinList"));
+const VinIdInfo = lazy(() => import("../../pages/VinIdInfo/VinIdInfo"));
 const NavBar = lazy(() => import("../Nav/NavBar"));
+
+
+
 
 function Routes() {
   function getComponent(Component) {

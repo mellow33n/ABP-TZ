@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { getVinListFetch } from "../Store/Reducer/vinSlice";
+import { getVinListFetch } from "../../components/Store/Reducer/vinSlice";
 
 import VinCards from "./VinCards";
 

@@ -9,14 +9,13 @@ function VinList() {
   const state = useSelector((data) => data);
   const dispatch = useDispatch();
 
-
   useEffect(() => {
     dispatch(getVinListFetch());
   }, [dispatch]);
 
   return state.loaded ? (
     <>
-      <VinCards/>
+      <VinCards />
     </>
   ) : (
     <>

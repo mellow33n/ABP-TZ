@@ -1,9 +1,12 @@
 .nav {
-  
   height: 5rem;
   display: flex;
   align-items: center;
   gap: 10rem;
+
+  @media (max-width: 500px) {
+    gap: 1rem;
+  }
 
   border: 2px solid rgba(2, 26, 39, 0.5);
   border-top-width: 20px;
@@ -32,32 +35,35 @@
   &-item {
     padding: 15px;
 
-    &-link {
-        display: flex;
+    @media (max-width: 350px) {
+      padding: 5px;
+    }
 
-        & img {
-            width: 20px;
-            height: 20px;
-            padding: 0 5px;
-        }
+    &-link {
+      display: flex;
+
+      & img {
+        width: 20px;
+        height: 20px;
+        padding: 0 5px;
+      }
     }
 
     &-btn {
-        font-weight: bold;
-        padding: 0px 5px 5px;
-        border-bottom: 4px solid transparent;
+      font-weight: bold;
+      padding: 0px 5px 5px;
+      border-bottom: 4px solid transparent;
 
-        &:hover {
-            border-bottom: 4px solid #ff7f50;
-            transition: all .5s ease;
-        }
+      &:hover {
+        border-bottom: 4px solid #ff7f50;
+        transition: all 0.5s ease;
+      }
     }
-
   }
 }
 .active {
-    & .nav-logo {
-        filter: invert(72%) sepia(25%) saturate(7432%) hue-rotate(327deg) brightness(104%) contrast(102%);
-    }
-    
+  & .nav-logo {
+    filter: invert(72%) sepia(25%) saturate(7432%) hue-rotate(327deg)
+      brightness(104%) contrast(102%);
+  }
 }

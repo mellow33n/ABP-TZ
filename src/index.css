@@ -14,8 +14,10 @@ body {
 a {
   text-decoration: none;
   outline: none;
-  color: rgb(2, 26, 39);;
+  color: rgb(2, 26, 39);
+  ;
 }
+
 p {
   margin: 0;
 }

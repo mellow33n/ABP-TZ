@@ -1,7 +1,8 @@
+import "./vincard.scss";
+
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-
 
 import { getVinListFetch } from "../../components/Store/Reducer/vinSlice";
 
@@ -12,7 +13,9 @@ function VinIdInfo() {
   const state = useSelector((data) => data);
   const params = useParams();
 
-  const card = state.vinList.filter((value) => value.ID === Number(params.id))[0];
+  const card = state.vinList.filter(
+    (value) => value.ID === Number(params.id)
+  )[0];
 
   useEffect(() => {
     dispatch(getVinListFetch());

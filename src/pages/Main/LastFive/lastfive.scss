@@ -1,0 +1,58 @@
+.main-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+
+  border: 2px solid rgba(2, 26, 39, 0.5);
+  border-radius: 0 15px 15px 0;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1;
+  background: inherit;
+  overflow: hidden;
+
+  @media (max-width: 850px) {
+    border-radius: 15px 0 0 15px;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    background: inherit;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.5);
+    filter: blur(10px);
+    margin: -20px;
+  }
+
+  &-btn {
+    border-radius: 5px;
+    border: 1px solid rgba(2, 26, 39, 0.5);
+    background: rgb(252, 237, 232);
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+      rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    padding: 5px 10px;
+    cursor: pointer;
+
+    @media (max-width: 500px) {
+      width: auto;
+      font-size: 10px;
+    }
+    @media (max-width: 350px) {
+      width: auto;
+      font-size: 9px;
+    }
+  }
+  & h3 {
+    @media (max-width: 500px) {
+      padding-left: 5px;
+      font-size: 15px;
+    }
+  }
+}

@@ -47,7 +47,7 @@ export const vinSlice = createSlice({
             state.error = null;
             const errorsID = [143, 156, 191];
             state.searchResults.results = action.payload.data.Results.filter((value) => value.Value && !errorsID.includes(value.VariableId) ? value : null)
-            state.searchResults.errors = action.payload.data.Results.filter((value) => value.Value && errorsID.includes(value.VariableId)? value : null);
+            state.searchResults.errors = action.payload.data.Results.filter((value) => value.Value && errorsID.includes(value.VariableId) ? value : null);
             state.searchCriteria = action.payload.data.SearchCriteria;
             // lastFiveSearch
             // добавляю первый запрос
@@ -95,5 +95,4 @@ export const vinSlice = createSlice({
         })
     }
 });
-export const { a } = vinSlice.actions;
 export default vinSlice.reducer;

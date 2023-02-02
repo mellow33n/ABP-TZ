@@ -9,7 +9,9 @@ function ResultCards({ sectClassName }) {
         <>
           {state.searchResults.results.map((value, index) => (
             <div className="main-right-string" key={index}>
-              <p className="main-right-string-value">{value.Variable + ":"}</p>
+              <h3 className="main-right-string-value">
+                {value.Variable + ":"}
+              </h3>
               <p className="main-right-string-value">{value.Value}</p>
             </div>
           ))}
@@ -20,7 +22,9 @@ function ResultCards({ sectClassName }) {
         <>
           {state.searchResults.errors.map((value, index) => (
             <div className="main-right-string" key={index}>
-              <p className="main-right-string-value">{value.Variable + ":"}</p>
+              <h3 className="main-right-string-value">
+                {value.Variable + ":"}
+              </h3>
               <p className="main-right-string-value">{value.Value}</p>
             </div>
           ))}

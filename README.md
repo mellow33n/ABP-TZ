@@ -19,6 +19,6 @@
 
 
 
-# created with Create React App
-# icons from https://freeicons.io/ , designed by iconking1, rajdev
+created with Create React App
+icons from https://freeicons.io/ , designed by iconking1, rajdev
 

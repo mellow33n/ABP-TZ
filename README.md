@@ -1,15 +1,14 @@
-Застосунок для отримання інформації по VIN коду.
+An application for retrieving information based on a VIN code.
 
-Застосунок написаний на React. Для навігації використовується React Router. Дані храняться за допомогою менеджеру стану Redux toolkit. Форма введення підтримує мінімальну валідацію даних (поле не пусте, не більше 17 символів, немає заборонених символів). 
-Помилки валідації форми і повідомлення з відповіді API (поле Message) виводяться у інтерфейсі. Застосунок веде історію з 5 останніх запитів та дозволяє застосувати їх для повторного відображення результатів. 
+The application is built with React and utilizes React Router for navigation. Data is managed using the Redux toolkit state manager. The input form supports minimal data validation (field is not empty, no more than 17 characters, and no prohibited symbols). Validation errors and API response messages (Message field) are displayed in the interface. The application keeps a history of the last 5 requests and allows applying them for re-displaying results.
 
-Працездатність у останніх версіях Chrome та Firefox на 03.02.23.
+Functionality tested on the latest versions of Chrome and Firefox as of 03.02.23.
 
-Верстка адаптивна та відображає контент корректно у роздільній здатності від 320 до 1920 px, витримана семантика та БЄМ в назвах класів. 
+The layout is responsive and displays content correctly across screen resolutions ranging from 320 to 1920 px. It adheres to semantic HTML and BEM naming conventions for class names.
 
-Застосунок розміщенний на верселі - [https://vercel.com/mellow33n/abp-tz](https://abp-tz.vercel.app/)
+App deploy at Vercel - [https://vercel.com/mellow33n/abp-tz](https://abp-tz.vercel.app/)
 
-Для зв'язку пріорітетний канал це телеграм - @mellow33n
+Send me please feedback at email: kramzeee@gmail.com
 
 
 

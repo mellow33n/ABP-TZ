@@ -8,7 +8,7 @@ The layout is responsive and displays content correctly across screen resolution
 
 App deploy at Vercel - [https://vercel.com/mellow33n/abp-tz](https://abp-tz.vercel.app/)
 
-Send me please feedback at email: kramzeee@gmail.com
+Send me please the feedback at email: kramzeee@gmail.com
 
 
 
@@ -18,6 +18,5 @@ Send me please feedback at email: kramzeee@gmail.com
 
 
 
-created with Create React App
-icons from https://freeicons.io/ , designed by iconking1, rajdev
+Created with Create React App. Icons from https://freeicons.io/ , designed by iconking1, rajdev
 
